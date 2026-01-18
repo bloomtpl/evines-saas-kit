@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Evines — Premium Next.js SaaS Starter Kit
 
-## Getting Started
+Thank you for choosing **Evines**, a high-end boilerplate from [bloomtpl.com](https://bloomtpl.com). This template is engineered for excellence, handling the "boring stuff" (Auth, Billing, DB) so you can focus on building your vision.
 
-First, run the development server:
+## 🛠 Tech Stack (Latest Versions)
+
+- **Framework:** Next.js 16.1 (App Router)
+- **Library:** React 19 (Actions & New Hooks)
+- **Styling:** Tailwind CSS v4 (Next-gen engine)
+- **Database:** Prisma (Type-safe ORM)
+- **Auth:** Auth.js v5 (Secure & Lightweight)
+- **Payments:** Stripe (Pre-configured PRO & ELITE tiers)
+
+## ⚡ Quick Start
+
+### 1. Installation & Init
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+# Install dependencies
+npm install
+
+# Create environment file
+cp .env.example .env
+
+# Generate Auth Secret
+npx auth secret
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Database Sync
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Update your `DATABASE_URL` in `.env`, then run:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npx prisma db push
+npx prisma generate
+```
 
-## Learn More
+## 🗺 Setup Roadmap
 
-To learn more about Next.js, take a look at the following resources:
+To ensure a seamless launch, follow the configuration in this specific order:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 1. Stripe Integration
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Create your products (Pro & Elite) in Stripe. Map the Price IDs to your `.env`:
 
-## Deploy on Vercel
+```bash
+NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY="price_..."
+NEXT_PUBLIC_STRIPE_PRICE_PRO_YEARLY="price_..."
+# ... same for ELITE
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### 2. Email Setup (Resend)
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Configure Resend for transactional emails (Magic Links, Welcomes).
+
+```bash
+RESEND_API_KEY="re_..."
+```
+
+## 📖 Full Documentation
+
+Need more details? Explore the complete documentation to master every part of the kit:
+
+- 📘 **Introduction** — Overview of architecture and features
+- 🚀 **Getting Started** — Step-by-step installation guide
+- 🗄️ **Database Setup** — PostgreSQL & Prisma configuration
+- 🔑 **Authentication** — Social logins & Magic Links
+- 💳 **Stripe Guide** — Handling subscriptions & Webhooks
+
+## 🛠️ Commands Reference
+
+| Command             | Action                                          |
+| ------------------- | ----------------------------------------------- |
+| `npm run dev`       | Starts the development server at localhost:3000 |
+| `npm run build`     | Creates an optimized production build           |
+| `npx prisma studio` | Opens a visual editor for your database         |
+| `stripe listen`     | Forwards Stripe webhooks to your local machine  |
+
+## Support & Updates
+
+Maintained with ❤️ by **Bloomtpl**. For updates or technical support, visit [bloomtpl.com](https://bloomtpl.com).
