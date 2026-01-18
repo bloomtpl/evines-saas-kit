@@ -17,6 +17,16 @@ export default async function BillingPage() {
     },
   });
 
+  console.log("ID dans DB:", user?.stripePriceId);
+  console.log(
+    "ID Pro Monthly Config:",
+    process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_MONTHLY,
+  );
+  console.log(
+    "ID Pro Yearly Config:",
+    process.env.NEXT_PUBLIC_STRIPE_PRICE_PRO_YEARLY,
+  );
+
   const currentPlanConfig = PLANS.find(
     (p) =>
       p.priceIds.monthly === user?.stripePriceId ||
@@ -24,6 +34,11 @@ export default async function BillingPage() {
   );
 
   const isYearly = currentPlanConfig?.priceIds.yearly === user?.stripePriceId;
+
+  const planName = currentPlanConfig
+    ? currentPlanConfig.name.toUpperCase()
+    : "FREE";
+
   const currentPrice = currentPlanConfig
     ? isYearly
       ? currentPlanConfig.yearlyPrice
@@ -43,7 +58,7 @@ export default async function BillingPage() {
 
       <div className="space-y-6">
         <PlanSummary
-          plan={user?.plan}
+          plan={planName}
           price={currentPrice}
           isYearly={isYearly}
           expiryDate={user?.stripeCurrentPeriodEnd}
