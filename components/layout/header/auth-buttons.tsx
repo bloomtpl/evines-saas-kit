@@ -19,7 +19,7 @@ export default async function AuthButton() {
     const userInitials = session.user.name
       ? session.user.name
           .split(" ")
-          .map((n) => n[0])
+          .map((n: string) => n[0])
           .join("")
           .toUpperCase()
       : "U";
