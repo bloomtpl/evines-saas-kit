@@ -1,3 +1,5 @@
+"use client";
+
 import {
   AlertCircle,
   CheckCircle2,
@@ -31,6 +33,41 @@ export default function StripeDoc() {
           Evines includes a complete subscription system. You need to link your
           Stripe products to the definitions in the application configuration.
         </p>
+      </div>
+
+      <div className="p-6 rounded-2xl border border-amber-500/20 bg-amber-500/5 flex flex-col md:flex-row gap-6 items-center justify-between overflow-hidden relative group">
+        <div className="absolute top-0 right-0 p-4 opacity-10 group-hover:scale-110 transition-transform">
+          <CreditCard className="w-24 h-24 rotate-12" />
+        </div>
+
+        <div className="space-y-1 relative z-10">
+          <div className="flex items-center gap-2 text-amber-500 font-bold uppercase tracking-tighter text-sm">
+            <div className="w-2 h-2 rounded-full bg-amber-500 animate-pulse" />
+            Test Mode Active
+          </div>
+          <p className="text-zinc-400 text-sm max-w-md">
+            You can simulate payments using Stripe&apos;s official test card. No
+            real money will be charged.
+          </p>
+        </div>
+
+        <div className="flex items-center gap-3 bg-zinc-950/50 p-3 rounded-xl border border-zinc-900 relative z-10">
+          <div className="space-y-0.5">
+            <p className="text-[10px] uppercase text-zinc-500 font-mono tracking-widest">
+              Test Card Number
+            </p>
+            <code className="text-zinc-200 font-bold tracking-[0.2em]">
+              4242 4242 4242 4242
+            </code>
+          </div>
+          <button
+            onClick={() => navigator.clipboard.writeText("4242424242424242")}
+            className="p-2 hover:bg-zinc-800 rounded-lg transition-colors text-zinc-400 hover:text-white"
+            title="Copy to clipboard"
+          >
+            <CheckCircle2 className="w-4 h-4" />
+          </button>
+        </div>
       </div>
 
       <section className="space-y-6">

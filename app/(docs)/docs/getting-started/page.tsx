@@ -1,11 +1,4 @@
-import {
-  ArrowRight,
-  Copy,
-  Download,
-  Globe,
-  Laptop,
-  Terminal,
-} from "lucide-react";
+import { ArrowRight, Download, Globe, Laptop, Terminal } from "lucide-react";
 import Link from "next/link";
 
 export default function GettingStarted() {
@@ -71,7 +64,6 @@ export default function GettingStarted() {
             </p>
             <div className="flex items-center justify-between p-4 bg-black border border-zinc-800 rounded-xl font-mono text-sm group-hover:border-zinc-700 transition-colors">
               <span className="text-emerald-500">npm install</span>
-              <Copy className="w-4 h-4 text-zinc-700 cursor-pointer hover:text-zinc-400" />
             </div>
           </div>
 
@@ -82,7 +74,6 @@ export default function GettingStarted() {
             </p>
             <div className="flex items-center justify-between p-4 bg-black border border-zinc-800 rounded-xl font-mono text-sm group-hover:border-zinc-700 transition-colors">
               <span className="text-emerald-500">cp .env.example .env</span>
-              <Copy className="w-4 h-4 text-zinc-700 cursor-pointer hover:text-zinc-400" />
             </div>
           </div>
         </div>
